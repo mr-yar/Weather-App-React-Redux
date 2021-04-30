@@ -1,9 +1,9 @@
 import React from 'react';
 import {useDispatch} from 'react-redux';
-import {dateGetDay, getLocalDate} from '../../../common/utils';
-import {Precipitation} from '../../Precipitation/Precipitation';
-import {selectedDay} from '../../../redux/reducers/tableReducer';
-import {IDayProps} from '../../../common/types';
+import {dateGetDay, getLocalDate} from '../../utils/utils';
+import {Precipitation} from '../Precipitation/Precipitation';
+import {selectedDay} from '../../redux/reducers/tableReducer';
+import {IDayProps} from '../../types/types';
 
 export const Day = (props: IDayProps): JSX.Element => {
   const dispatch = useDispatch();

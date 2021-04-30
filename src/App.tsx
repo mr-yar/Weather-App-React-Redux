@@ -1,32 +1,22 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
 import {RootState} from './redux/store';
-import {Input} from './components/Main/Input';
-import {Info} from './components/Main/Info';
-import {Scale} from './components/Main/Scale';
-import {setBg} from './common/utils';
-import {IWeather} from './common/types';
-import {ForecastTable} from './components/ForecastWeek/ForecastTable';
+import {Routes} from './services/routes';
+import {setBg} from './utils/utils';
+import {IWeather} from './types/types';
 import './styles/main.sass';
 
 function App(): JSX.Element {
-  const weather: IWeather = useSelector((state: RootState) => state.inputReducer.weather);
+  const weather: IWeather = useSelector(
+    (state: RootState) => state.inputReducer.weather
+  );
 
   return (
     <Router>
       <div className={setBg(weather)}>
         <div className="container">
-          <Switch>
-            <Route exact path="/">
-              <Input />
-              <Info temp weather={weather} />
-              <Scale weather={weather} />
-            </Route>
-            <Route exact path="/forecast">
-              {weather.cod !== 0 ? <ForecastTable weather={weather} /> : ''}
-            </Route>
-          </Switch>
+          <Routes weather={weather} />
         </div>
       </div>
     </Router>

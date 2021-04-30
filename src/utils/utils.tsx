@@ -1,4 +1,4 @@
-import {IWeather} from './types';
+import {IWeather} from '../types/types';
 
 export function getLocalDate(timezone: number, date: Date): Date {
   const utc = date.getTime() + date.getTimezoneOffset() * 60000;

@@ -20,8 +20,12 @@ export const store = configureStore({
 });
 
 sagaMiddleware.run(rootWatcher);
+
 store.subscribe(() => {
-  localStorage.setItem('reduxState', JSON.stringify(store.getState()));
+  localStorage.setItem(
+    'reduxState',
+    JSON.stringify(store.getState())
+  );
 });
 
 export type RootState = ReturnType<typeof store.getState>;

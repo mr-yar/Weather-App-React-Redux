@@ -1,9 +1,9 @@
 import React from 'react';
-import {Precipitation} from '../../Precipitation/Precipitation';
-import {dateGetHours, dateGetMinutes, getLocalDate} from '../../../common/utils';
-import humidityIcon from '../../Precipitation/svg/ic-weather-drop.svg';
-import windIcon from '../../Precipitation/svg/ic-weather-wind.svg';
-import {IHourProps} from '../../../common/types';
+import {Precipitation} from '../Precipitation/Precipitation';
+import {dateGetHours, dateGetMinutes, getLocalDate} from '../../utils/utils';
+import humidityIcon from '../Precipitation/svg/ic-weather-drop.svg';
+import windIcon from '../Precipitation/svg/ic-weather-wind.svg';
+import {IHourProps} from '../../types/types';
 
 export const Hour = ({forecastItem}: IHourProps): JSX.Element => {
   const d = new Date(forecastItem.dt * 1000);

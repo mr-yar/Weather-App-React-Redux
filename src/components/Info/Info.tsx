@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
-import {IWeather} from '../../common/types';
+import {IWeather} from '../../types/types';
 
 export interface InfoProps {
   weather: IWeather;

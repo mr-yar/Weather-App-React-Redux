@@ -1,16 +1,23 @@
 import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
-import {Info} from '../Main/Info';
-import {Hours} from './Hours/Hours';
-import {Days} from './Days/Days';
-import {getLocalDate} from '../../common/utils';
+import {Info} from '../Info/Info';
+import {Hours} from '../Hours/Hours';
+import {Days} from '../Days/Days';
+import {getLocalDate} from '../../utils/utils';
 import {tableLoadAction} from '../../redux/reducers/tableReducer';
 import {RootState} from '../../redux/store';
-import {IForecast, IWeather, ListForecast, ListForecastItem} from '../../common/types';
-import closeSvg from './svg/close.svg';
+import {
+  IForecast,
+  IWeather,
+  ListForecast,
+  ListForecastItem
+} from '../../types/types';
+import {CloseIcon} from '../../common/CloseIcon/CloseIcon';
 
-export const ForecastTable = ({weather}: {weather: IWeather}): JSX.Element => {
+export const ForecastTable = ({weather}: {
+  weather: IWeather;
+}): JSX.Element => {
   const dispatch = useDispatch();
 
   const forecast: IForecast = useSelector(
@@ -56,7 +63,9 @@ export const ForecastTable = ({weather}: {weather: IWeather}): JSX.Element => {
         <Info weather={weather} />
         <div className="forecast-close">
           <Link to="/">
-            <img src={closeSvg} alt="" className="forecast-closeIcon" />
+            <div className="forecast-closeIcon">
+              <CloseIcon />
+            </div>
           </Link>
         </div>
       </div>
@@ -64,7 +73,10 @@ export const ForecastTable = ({weather}: {weather: IWeather}): JSX.Element => {
         key={forecastSorted[selectedDay].dt}
         forecast={forecastSorted[selectedDay]}
       />
-      <Days forecastDays={forecastSorted} timezone={weather.timezone} />
+      <Days
+        forecastDays={forecastSorted}
+        timezone={weather.timezone}
+      />
     </div>
   );
 };

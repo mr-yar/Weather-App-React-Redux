@@ -11,8 +11,8 @@ import weatherUmbrella from './svg/ic-weather-umbrella.svg';
 import weatherWind from './svg/ic-weather-wind.svg';
 import weatherWindStorm from './svg/ic-weather-wind-storm.svg';
 import weatherWindStormRain from './svg/ic-weather-wind-storm-rain.svg';
-import {getLocalDate} from '../../common/utils';
-import {IPrecipitationProps} from '../../common/types';
+import {getLocalDate} from '../../utils/utils';
+import {IPrecipitationProps} from '../../types/types';
 
 export function Precipitation({weather, size}: IPrecipitationProps): JSX.Element {
   const isLoading = useSelector((state: RootState) => state.inputReducer.loading);

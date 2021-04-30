@@ -1,6 +1,6 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
 import axios from 'axios';
-import {API_ADRESS, API_KEY} from '../../common/api';
+import {API_ADRESS, API_KEY} from '../../services/api';
 import {tablePutAction} from '../reducers/tableReducer';
 
 function loadTable(value: string) {

@@ -1,8 +1,8 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {Day} from './Day';
-import {RootState} from '../../../redux/store';
-import {IDaysProps, IWeather} from '../../../common/types';
+import {Day} from '../Day/Day';
+import {RootState} from '../../redux/store';
+import {IDaysProps, IWeather} from '../../types/types';
 
 export const Days = ({forecastDays, timezone}: IDaysProps): JSX.Element => {
   const selectedDay = useSelector((state: RootState) => state.tableReducer.selectedDay);
