@@ -152,3 +152,8 @@ export interface IPrecipitationProps {
   weather: ListForecastItem | IWeather;
   size: string;
 }
+
+export interface IWorkerAction {
+  type: string;
+  payload: string;
+}

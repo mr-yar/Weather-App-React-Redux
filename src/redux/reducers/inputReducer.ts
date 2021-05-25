@@ -55,6 +55,7 @@ const inputSlice = createSlice({
     },
     inputSearchLoadAction(state, action) {
       state.loading = true;
+      state.inputValue = action.payload;
     },
     inputSearchPutAction(state, action) {
       state.weather = action.payload;

@@ -1,8 +1,8 @@
 import React from 'react';
 import {Route, Switch} from 'react-router-dom';
 import {Main} from '../pages/Main/Main';
-import {ForecastTable} from '../components/ForecastTable/ForecastTable';
-import {IWeather} from '../types/types';
+import {ForecastWeek} from '../pages/ForecastWeek/ForecastWeek';
+import {IWeather} from '../common/types';
 
 export const Routes = ({weather}: {
   weather: IWeather;
@@ -12,7 +12,7 @@ export const Routes = ({weather}: {
       <Main weather={weather} />
     </Route>
     <Route exact path="/forecast">
-      {weather.cod !== 0 ? <ForecastTable weather={weather} /> : ''}
+      <ForecastWeek weather={weather} />
     </Route>
   </Switch>
 );

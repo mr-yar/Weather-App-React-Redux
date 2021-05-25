@@ -1,18 +1,18 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {RootState} from '../../redux/store';
-import weatherCloud from './svg/ic-weather-cloud.svg';
-import weatherCloudy from './svg/ic-weather-cloudy.svg';
-import weatherDrop from './svg/ic-weather-drop.svg';
-import weatherMoon from './svg/ic-weather-moon.svg';
-import weatherSnow from './svg/ic-weather-snow.svg';
-import weatherSunny from './svg/ic-weather-sunny.svg';
-import weatherUmbrella from './svg/ic-weather-umbrella.svg';
-import weatherWind from './svg/ic-weather-wind.svg';
-import weatherWindStorm from './svg/ic-weather-wind-storm.svg';
-import weatherWindStormRain from './svg/ic-weather-wind-storm-rain.svg';
-import {getLocalDate} from '../../utils/utils';
-import {IPrecipitationProps} from '../../types/types';
+import weatherCloud from '../../assets/icons/ic-weather-cloud.svg';
+import weatherCloudy from '../../assets/icons/ic-weather-cloudy.svg';
+import weatherDrop from '../../assets/icons/ic-weather-drop.svg';
+import weatherMoon from '../../assets/icons/ic-weather-moon.svg';
+import weatherSnow from '../../assets/icons/ic-weather-snow.svg';
+import weatherSunny from '../../assets/icons/ic-weather-sunny.svg';
+import weatherUmbrella from '../../assets/icons/ic-weather-umbrella.svg';
+import weatherWind from '../../assets/icons/ic-weather-wind.svg';
+import weatherWindStorm from '../../assets/icons/ic-weather-wind-storm.svg';
+import weatherWindStormRain from '../../assets/icons/ic-weather-wind-storm-rain.svg';
+import {getLocalDate} from '../../utils';
+import {IPrecipitationProps} from '../../common/types';
 
 export function Precipitation({weather, size}: IPrecipitationProps): JSX.Element {
   const isLoading = useSelector((state: RootState) => state.inputReducer.loading);

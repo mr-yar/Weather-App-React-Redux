@@ -53,7 +53,8 @@ const initialState = {
     }
   },
   loading: false,
-  selectedDay: 0
+  selectedDay: 0,
+  city: ''
 };
 
 const tableSlice = createSlice({
@@ -62,6 +63,7 @@ const tableSlice = createSlice({
   reducers: {
     tableLoadAction(state, action) {
       state.loading = true;
+      state.city = action.payload;
     },
     tablePutAction(state, action) {
       state.forecast = action.payload;

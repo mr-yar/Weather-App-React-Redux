@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Info} from '../Info/Info';
 import {Hours} from '../Hours/Hours';
 import {Days} from '../Days/Days';
-import {getLocalDate} from '../../utils/utils';
+import {getLocalDate} from '../../utils';
 import {tableLoadAction} from '../../redux/reducers/tableReducer';
 import {RootState} from '../../redux/store';
 import {
@@ -12,12 +12,11 @@ import {
   IWeather,
   ListForecast,
   ListForecastItem
-} from '../../types/types';
+} from '../../common/types';
+
 import {CloseIcon} from '../../common/CloseIcon/CloseIcon';
 
-export const ForecastTable = ({weather}: {
-  weather: IWeather;
-}): JSX.Element => {
+export const ForecastTable = ({weather}: {weather: IWeather}): JSX.Element => {
   const dispatch = useDispatch();
 
   const forecast: IForecast = useSelector(
@@ -36,7 +35,7 @@ export const ForecastTable = ({weather}: {
   }
 
   function sortList() {
-    const forecastList: any = [];
+    const forecastList: Record<string, any> = [];
     forecast.list.forEach((item: ListForecast) => {
       const d = new Date(item.dt * 1000);
       const dateTime = getLocalDate(weather.timezone || 0, d);
@@ -57,6 +56,7 @@ export const ForecastTable = ({weather}: {
   }
 
   const forecastSorted = sortList();
+
   return (
     <div className="forecast-table">
       <div className="forecast-header">
@@ -73,10 +73,7 @@ export const ForecastTable = ({weather}: {
         key={forecastSorted[selectedDay].dt}
         forecast={forecastSorted[selectedDay]}
       />
-      <Days
-        forecastDays={forecastSorted}
-        timezone={weather.timezone}
-      />
+      <Days forecastDays={forecastSorted} timezone={weather.timezone} />
     </div>
   );
 };

@@ -3,8 +3,8 @@ import {useSelector} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import {RootState} from './redux/store';
 import {Routes} from './services/routes';
-import {setBg} from './utils/utils';
-import {IWeather} from './types/types';
+import {setBg} from './utils';
+import {IWeather} from './common/types';
 import './styles/main.sass';
 
 function App(): JSX.Element {

@@ -10,9 +10,9 @@ import {
   dateGetSeconds,
   dateGetYear,
   getLocalDate
-} from '../../utils/utils';
+} from '../../utils';
 import {RootState} from '../../redux/store';
-import {IWeather} from '../../types/types';
+import {IWeather} from '../../common/types';
 
 export function Scale({weather}: {weather: IWeather}): JSX.Element {
   const [date, setDate] = useState(new Date());

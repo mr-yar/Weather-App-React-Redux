@@ -1,7 +1,8 @@
 import {call, put, takeEvery} from 'redux-saga/effects';
 import axios from 'axios';
-import {API_ADRESS, API_KEY} from '../../services/api';
 import {tablePutAction} from '../reducers/tableReducer';
+import {API_ADRESS, API_KEY} from '../../services/api';
+import {IWorkerAction} from '../../common/types';
 
 function loadTable(value: string) {
   return axios
@@ -12,11 +13,12 @@ function loadTable(value: string) {
     );
 }
 
-function* workerTable(action: any) {
+
+function* workerTable(action: IWorkerAction) {
   const data = yield call(loadTable, action.payload);
   yield put(tablePutAction(data));
 }
 
-export function* watchTable() {
+export function* watchTable(): Generator {
   yield takeEvery('Table/tableLoadAction', workerTable);
 }
